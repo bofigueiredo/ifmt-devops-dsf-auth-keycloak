@@ -1,0 +1,17 @@
+postgres:
+USER: admin
+PASS: admin
+DATABASES: keycloak,biblioteca
+
+
+pgAdmin:
+http://localhost:5050/
+USER: admin@admin.local
+PASS: admin
+
+
+keycloak:
+http://host.docker.internal:8180
+USER: admin
+PASS: admin
+

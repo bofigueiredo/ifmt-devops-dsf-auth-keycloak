@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "75167b17-ca40-4461-bbb1-b702c72502e9",
+		"name": "KeyCloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "367747"
+	},
+	"item": [
+		{
+			"name": "project-api",
+			"item": [
+				{
+					"name": "foo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/foo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"foo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "foo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/foo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"foo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "foo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/foo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"foo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "password",
+						"value": "usuario",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "usuario",
+						"type": "string"
+					},
+					{
+						"key": "tokenName",
+						"value": "USUARIO_TOKEN",
+						"type": "string"
+					},
+					{
+						"key": "clientId",
+						"value": "project-api",
+						"type": "string"
+					},
+					{
+						"key": "accessTokenUrl",
+						"value": "http://host.docker.internal:8180/realms/ifmt/protocol/openid-connect/token",
+						"type": "string"
+					},
+					{
+						"key": "grant_type",
+						"value": "password_credentials",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "OpenID Connect",
+			"item": [
+				{
+					"name": "TOKEN",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "project-api",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://host.docker.internal:8180/realms/ifmt/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"host",
+								"docker",
+								"internal"
+							],
+							"port": "8180",
+							"path": [
+								"realms",
+								"ifmt",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REVOKE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "project-api",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "",
+									"description": "refresh-token",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://host.docker.internal:8180/realms/ifmt/protocol/openid-connect/revoke",
+							"protocol": "http",
+							"host": [
+								"host",
+								"docker",
+								"internal"
+							],
+							"port": "8180",
+							"path": [
+								"realms",
+								"ifmt",
+								"protocol",
+								"openid-connect",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REFRESH TOKEN",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "project-api",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzNzM4YjkzMy1jMDhiLTRlOGUtYmQ0ZC1hYTM3NzcwN2NkNDUifQ.eyJleHAiOjE2OTk1Nzc5NTUsImlhdCI6MTY5OTU3NjE1NSwianRpIjoiZjZhYjRkNDMtYmE0YS00OTBjLWJmMDQtZjkyMTQ0NjhiZGY4IiwiaXNzIjoiaHR0cDovL2hvc3QuZG9ja2VyLmludGVybmFsOjgxODAvcmVhbG1zL2lmbXQiLCJhdWQiOiJodHRwOi8vaG9zdC5kb2NrZXIuaW50ZXJuYWw6ODE4MC9yZWFsbXMvaWZtdCIsInN1YiI6ImQxNDM5NGFhLWRhNDUtNDg4YS05MTRkLTA3ZTg5Mjk1MmUzMyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJwcm9qZWN0LWFwaSIsInNlc3Npb25fc3RhdGUiOiIyODc0YTMxNy1mZmE1LTQyNWMtOWUzYi1lNzk2YzI4NzUyMGQiLCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiIyODc0YTMxNy1mZmE1LTQyNWMtOWUzYi1lNzk2YzI4NzUyMGQifQ.5QPABn2qP3vNYxfZW1o7vZj-M9YZSRLMiiBQZl-4WUg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://host.docker.internal:8180/realms/ifmt/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"host",
+								"docker",
+								"internal"
+							],
+							"port": "8180",
+							"path": [
+								"realms",
+								"ifmt",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenName",
+				"value": "TOKEN_TESTE",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "teste",
+				"type": "string"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "username",
+				"value": "teste",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "biblioteca-api",
+				"type": "string"
+			},
+			{
+				"key": "refreshTokenUrl",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "http://host.docker.internal:8180/realms/biblioteca/protocol/openid-connect/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

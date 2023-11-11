@@ -22,7 +22,7 @@
 
 
 - **Integrantes:**
-    - Alison Sacal Lima 
+    - Alison Sacal Ferreira de Lima 
     - Bruno de Oliveira Figueiredo
     - Edinei Nissola
     - Eduardo Ormond dos Santos
@@ -99,7 +99,7 @@ Para gerenciamento dos usuários, autenticação e autorização, iremos utiliza
 
     Por conceito o REALM é uma área isolada onde serão criadas as politicas de segurança, configuração dos clients que terão acesso a esse contexto bem como seus usuários e permissões. 
 
-    O próprio KeyCloa utiliza o Realm Master para gerenciar a autenticação e autorização da ferramente, sendo assim por questões de isolamente e segurança de disponibilidade é altamente recomendado criar um novo REALM para iniciar a configuração do(s) Client(s) que irão utilizar o ambiente.
+    O próprio KeyCloak utiliza o Realm Master para gerenciar a autenticação e autorização da ferramente, sendo assim por questões de isolamente e segurança de disponibilidade é altamente recomendado criar um novo REALM para iniciar a configuração do(s) Client(s) que irão utilizar o ambiente.
 
     - Para criarmos o Realm iremos apenas utilizar a botão:
 
